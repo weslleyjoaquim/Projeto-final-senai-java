@@ -4,6 +4,7 @@ import java.sql.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import projetosenai.dao.ConnectionFactory;
+import projetosenai.dao.LoginDao;
 
 public class TelaLogin extends javax.swing.JFrame {
 
@@ -264,7 +265,9 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_textUserActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        logar();
+        //logar();
+        LoginDao acess = new LoginDao();
+        acess.logar(textUser, textPassword);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked

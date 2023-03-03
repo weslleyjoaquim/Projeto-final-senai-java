@@ -16,7 +16,7 @@ public class ConnectionFactory {
     public static Connection conexao(){
         java.sql.Connection conexao = null;
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/registrosDeChamados";
+        String url = "jdbc:mysql://localhost:3306/senai";
         String user = "root";
         String password = "P@ss123";
         

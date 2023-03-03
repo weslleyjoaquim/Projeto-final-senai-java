@@ -333,15 +333,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFecharMouseClicked
 
     private void painel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painel1MouseClicked
-        CadastroChamados obj = new CadastroChamados();
-        painelPrincipal.add(obj);
-        obj.setVisible(true);
+        //CadastroChamados obj = new CadastroChamados();
+        //painelPrincipal.add(obj);
+        //obj.setVisible(true);
+        new TelaCadastro().setVisible(true);
     }//GEN-LAST:event_painel1MouseClicked
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
-         ConsultaChamados obj = new ConsultaChamados();
-        painelPrincipal.add(obj);
-        obj.setVisible(true);
+        // ConsultaChamados obj = new ConsultaChamados();
+        //painelPrincipal.add(obj);
+        //obj.setVisible(true);
+        new TelaConsulta().setVisible(true);
+        
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
