@@ -64,6 +64,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         textUser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textUser.setForeground(new java.awt.Color(51, 51, 255));
+        textUser.setBorder(null);
         textUser.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 textUserFocusGained(evt);
@@ -78,6 +79,7 @@ public class TelaLogin extends javax.swing.JFrame {
         textPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         textPassword.setForeground(new java.awt.Color(0, 51, 255));
         textPassword.setText("password");
+        textPassword.setBorder(null);
         textPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 textPasswordFocusGained(evt);
