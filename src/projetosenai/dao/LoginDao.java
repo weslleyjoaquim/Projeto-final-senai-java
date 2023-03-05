@@ -23,9 +23,7 @@ public class LoginDao {
                String usuario=user.getText();
                TelaPrincipal obj = new TelaPrincipal();
                obj.setVisible(true);
-               obj.setUsuario(usuario);
-               System.out.println("Teste "+usuario);
-                //TelaLogin.this.dispose();
+               obj.setUsuario(usuario);              
             }else{
                 JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos", "ERRO",JOptionPane.ERROR_MESSAGE);                
             }

@@ -268,6 +268,7 @@ public class TelaLogin extends javax.swing.JFrame {
         //logar();
         LoginDao acess = new LoginDao();
         acess.logar(textUser, textPassword);
+        TelaLogin.this.dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
