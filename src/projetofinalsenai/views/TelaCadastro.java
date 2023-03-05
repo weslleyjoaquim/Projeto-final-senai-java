@@ -1,11 +1,11 @@
 package projetofinalsenai.views;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
+//import java.sql.Connection;
+//import java.sql.PreparedStatement;
+//import java.sql.ResultSet;
+//import javax.swing.JOptionPane;
 import projetosenai.dao.CadastroDao;
-import projetosenai.dao.ConnectionFactory;
+//import projetosenai.dao.ConnectionFactory;
 
 public class TelaCadastro extends javax.swing.JFrame {
 
@@ -42,6 +42,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         textDescricao = new javax.swing.JTextArea();
         textPrioridade = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -69,6 +70,11 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-pesquisar16.png"))); // NOI18N
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons-fechar.png"))); // NOI18N
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,6 +104,14 @@ public class TelaCadastro extends javax.swing.JFrame {
         textPrioridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixa", "Média", "Alta" }));
 
         jLabel1.setText("Prioridade:");
+
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-salvar.png"))); // NOI18N
+        jToggleButton2.setText("Limpar");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -156,7 +170,9 @@ public class TelaCadastro extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(264, 264, 264))
+                .addGap(18, 18, 18)
+                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(163, 163, 163))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +221,9 @@ public class TelaCadastro extends javax.swing.JFrame {
                     .addComponent(textPrioridade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jToggleButton1)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jToggleButton1)
+                    .addComponent(jToggleButton2))
                 .addContainerGap())
         );
 
@@ -235,34 +253,26 @@ public class TelaCadastro extends javax.swing.JFrame {
         cadastrar.cadastrarChamado(textNome, textCPF, textMatricula, textSetor, textRamal, textEmail, textLocalChamado, textEquipamento, textDescricao, textPrioridade);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        CadastroDao consultarCPF = new CadastroDao();
+        consultarCPF.consultaCPF(textCPF,textNome, textMatricula, textSetor, textRamal, textEmail);
+    }//GEN-LAST:event_jLabel8MouseClicked
 
-        /* Create and display the form */
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+                textNome.setText(null);
+                textCPF.setText(null);
+                textMatricula.setText(null);
+                textSetor.setText(null);
+                textRamal.setText(null);
+                textEmail.setText(null);
+                textLocalChamado.setText(null);
+                textEquipamento.setText(null);
+                textDescricao.setText(null);
+                textPrioridade.setSelectedItem(null);   
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    public static void main(String args[]) {
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaCadastro().setVisible(true);
@@ -285,6 +295,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField textCPF;
     private javax.swing.JTextArea textDescricao;

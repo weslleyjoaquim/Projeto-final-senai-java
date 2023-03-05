@@ -5,9 +5,10 @@
         <group>
             <file>file:/C:/Users/weslleyjoaquim/Documents/NetBeansProjects/ProjetoFinalSenai/src/projetofinalsenai/views/ConsultaChamados.java</file>
             <file>file:/C:/Users/weslleyjoaquim/Documents/NetBeansProjects/ProjetoFinalSenai/src/projetofinalsenai/views/TelaLogin.java</file>
-            <file>file:/C:/Users/weslleyjoaquim/Documents/NetBeansProjects/ProjetoFinalSenai/src/projetosenai/dao/LoginDao.java</file>
-            <file>file:/C:/Users/weslleyjoaquim/Documents/NetBeansProjects/ProjetoFinalSenai/src/projetosenai/dao/ConnectionFactory.java</file>
+            <file>file:/C:/Users/weslleyjoaquim/Documents/NetBeansProjects/ProjetoFinalSenai/src/projetosenai/dao/CadastroDao.java</file>
+            <file>file:/C:/Users/weslleyjoaquim/Documents/NetBeansProjects/ProjetoFinalSenai/src/projetofinalsenai/views/TelaConsulta.java</file>
             <file>file:/C:/Users/weslleyjoaquim/Documents/NetBeansProjects/ProjetoFinalSenai/src/projetofinalsenai/ProjetoFinalSenai.java</file>
+            <file>file:/C:/Users/weslleyjoaquim/Documents/NetBeansProjects/ProjetoFinalSenai/src/projetofinalsenai/views/TelaRecuperaSenha.java</file>
         </group>
     </open-files>
 </project-private>
