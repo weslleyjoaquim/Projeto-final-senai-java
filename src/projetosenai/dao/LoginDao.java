@@ -33,7 +33,5 @@ public class LoginDao {
         }
     }
     
-    public void recuperaSenha(){
-        String sql ="";
-    }
+   
 }

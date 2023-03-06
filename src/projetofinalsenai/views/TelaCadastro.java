@@ -1,11 +1,6 @@
 package projetofinalsenai.views;
 
-//import java.sql.Connection;
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
-//import javax.swing.JOptionPane;
-import projetosenai.dao.CadastroDao;
-//import projetosenai.dao.ConnectionFactory;
+import projetosenai.dao.ChamadoDao;
 
 public class TelaCadastro extends javax.swing.JFrame {
 
@@ -249,12 +244,12 @@ public class TelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        CadastroDao cadastrar = new CadastroDao();
+        ChamadoDao cadastrar = new ChamadoDao();
         cadastrar.cadastrarChamado(textNome, textCPF, textMatricula, textSetor, textRamal, textEmail, textLocalChamado, textEquipamento, textDescricao, textPrioridade);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        CadastroDao consultarCPF = new CadastroDao();
+        ChamadoDao consultarCPF = new ChamadoDao();
         consultarCPF.consultaCPF(textCPF,textNome, textMatricula, textSetor, textRamal, textEmail);
     }//GEN-LAST:event_jLabel8MouseClicked
 

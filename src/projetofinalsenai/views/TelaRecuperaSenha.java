@@ -15,11 +15,9 @@ public class TelaRecuperaSenha extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        getCPF = new javax.swing.JTextField();
         getUsername = new javax.swing.JTextField();
         getPass = new javax.swing.JPasswordField();
         getConfirmedPass = new javax.swing.JPasswordField();
-        jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -41,20 +39,6 @@ public class TelaRecuperaSenha extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Confirme sua senha:");
-
-        getCPF.setForeground(new java.awt.Color(0, 0, 255));
-        getCPF.setText("          Digite seu CPF");
-        getCPF.setBorder(null);
-        getCPF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                getCPFFocusGained(evt);
-            }
-        });
-        getCPF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                getCPFActionPerformed(evt);
-            }
-        });
 
         getUsername.setForeground(new java.awt.Color(0, 0, 255));
         getUsername.setText("          Digite seu username");
@@ -84,8 +68,6 @@ public class TelaRecuperaSenha extends javax.swing.JFrame {
                 getConfirmedPassFocusGained(evt);
             }
         });
-
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 255));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 255));
 
@@ -132,8 +114,6 @@ public class TelaRecuperaSenha extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnCancelar))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jSeparator1)
-                        .addComponent(getCPF)
                         .addComponent(getUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(getPass, javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,11 +127,7 @@ public class TelaRecuperaSenha extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1)
-                .addGap(52, 52, 52)
-                .addComponent(getCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(89, 89, 89)
                 .addComponent(getUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,14 +188,6 @@ public class TelaRecuperaSenha extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void getCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getCPFActionPerformed
-
-    private void getCPFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_getCPFFocusGained
-        getCPF.setText("");
-    }//GEN-LAST:event_getCPFFocusGained
-
     private void getUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_getUsernameFocusGained
         getUsername.setText("");
     }//GEN-LAST:event_getUsernameFocusGained
@@ -248,7 +216,6 @@ public class TelaRecuperaSenha extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnCancelar;
-    private javax.swing.JTextField getCPF;
     private javax.swing.JPasswordField getConfirmedPass;
     private javax.swing.JPasswordField getPass;
     private javax.swing.JTextField getUsername;
@@ -256,7 +223,6 @@ public class TelaRecuperaSenha extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;

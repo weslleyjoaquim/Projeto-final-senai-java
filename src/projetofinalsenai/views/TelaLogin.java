@@ -337,32 +337,9 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField textPassword;
     private javax.swing.JTextField textUser;
     // End of variables declaration//GEN-END:variables
-
-    private void logar(){
-        String sql = "select * from usuarios where login=? and senha=?";
-        try{
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, textUser.getText());
-            ps.setString(2,textPassword.getText());
-            rs=ps.executeQuery();
-            if(rs.next()){
-               String user=textUser.getText();
-               TelaPrincipal obj = new TelaPrincipal();
-               obj.setVisible(true);
-               obj.setUsuario(user);
-               System.out.println("Teste "+user);
-                TelaLogin.this.dispose();
-            }else{
-                JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos", "ERRO",JOptionPane.ERROR_MESSAGE);                
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-        
-    }
-    
+   
     private void carregaImagem(){
-        String img = "src/imagens/suporte.png";
+        String img = "src/imagens/tela-login.png";
         
         try{
         ImageIcon iconImg = new ImageIcon(img);       

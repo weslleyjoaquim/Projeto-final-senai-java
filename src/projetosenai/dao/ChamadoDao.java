@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
 
-    //select c.local_chamado, c.equipamento, c.descricao, c.prioridade, f.nome, f.ramal, f.email from chamados c, funcionarios f where f.id = c.funcionarios_id
-public class CadastroDao{
+    
+public class ChamadoDao{
     
     Connection conn = ConnectionFactory.conexao();
     
@@ -99,8 +99,9 @@ public class CadastroDao{
     }
 
     public void consultarChamado(javax.swing.JTextField textID, javax.swing.JTextField textLocalChamado, javax.swing.JTextField textEquipamento,
-            javax.swing.JTextArea textDescricao, javax.swing.JTextArea textResolucao){
-        String sql = "select local_chamado, equipamento, descricao, resolucao from chamados where id=?";
+            javax.swing.JTextArea textDescricao, javax.swing.JTextArea textResolucao,javax.swing.JTextField textNome){
+        String sql = "select c.local_chamado, c.equipamento, c.descricao, c.resolucao,f.nome from chamados c "
+                + "inner join funcionarios f on c.funcionarios_id = f.id where c.id=?;";
         try{
             ResultSet rs = null;
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -113,6 +114,7 @@ public class CadastroDao{
                 textEquipamento.setText(rs.getString("Equipamento"));
                 textDescricao.setText(rs.getString("Descricao"));
                 textResolucao.setText(rs.getString("Resolucao"));
+                textNome.setText(rs.getString("nome"));
                 
             }else{
                 JOptionPane.showMessageDialog(null, "Chamado não encontrado");
@@ -122,6 +124,93 @@ public class CadastroDao{
             JOptionPane.showMessageDialog(null, e);
         }
         
+        
+    }
+
+    public void atualizarChamado(javax.swing.JTextField textLocalChamado,javax.swing.JTextField textEquipamento, javax.swing.JTextArea textDescricao, 
+            javax.swing.JComboBox<String> textPrioridade,javax.swing.JTextField textProtocolo){
+       // String sql = "update chamados c inner join funcionarios f on c.funcionarios_id = f.id set f.ramal=?, f.email=?, c.local_chamado=?, c.equipamento=?,c.descricao=? where c.id=?";
+       String sql = "update chamados set local_chamado=?,equipamento=?, descricao=?, prioridade=? where id=?" ;
+       try{
+            PreparedStatement ps = conn.prepareStatement(sql);
+            
+           
+            ps.setString(1, textLocalChamado.getText());
+            ps.setString(2, textEquipamento.getText());
+            ps.setString(3, textDescricao.getText());
+            ps.setString(4,textPrioridade.getSelectedItem().toString());
+            ps.setString(5, textProtocolo.getText());
+            
+            int resultado = ps.executeUpdate();
+            
+            if(resultado==1){
+                JOptionPane.showMessageDialog(null, "Chamado atualizado com sucesso");
+                textLocalChamado.setText(null);
+                textEquipamento.setText(null);
+                textDescricao.setText(null);
+                textPrioridade.setSelectedItem(null);
+                textProtocolo.setText(null);
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar o chamado");
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    
+        
+    
+    }
+    
+    public void deletarChamado(javax.swing.JTextField textLocalChamado,javax.swing.JTextField textEquipamento, javax.swing.JTextArea textDescricao,
+            javax.swing.JComboBox<String> textPrioridade,javax.swing.JTextField textProtocolo){
+        
+        String sql = "delete from chamados where id=?";
+            try{
+                int confirma = JOptionPane.showConfirmDialog(null, "Deseja  remover ?", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
+                if (confirma == JOptionPane.YES_NO_OPTION){
+                    PreparedStatement ps = conn.prepareStatement(sql);
+                    ps.setString(1, textProtocolo.getText());
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Chamado deletado com sucesso");
+                    textLocalChamado.setText(null);
+                    textEquipamento.setText(null);
+                    textDescricao.setText(null);
+                    textProtocolo.setText(null);
+                    textPrioridade.setSelectedItem(null);
+                    
+                
+                }
+                
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    
+    
+    
+    public void consultaProtocolo(javax.swing.JTextField textLocalChamado,
+            javax.swing.JTextField textEquipamento, javax.swing.JTextArea textDescricao, javax.swing.JComboBox<String> textPrioridade,javax.swing.JTextField textProtocolo){
+        String sql = "select*from chamados where id = ?";
+        try{
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,textProtocolo.getText());
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                textLocalChamado.setText(rs.getString("local_chamado"));
+                textEquipamento.setText(rs.getString("equipamento"));
+                textDescricao.setText(rs.getString("descricao"));
+                textPrioridade.setSelectedItem(rs.getString("prioridade"));
+            }else{
+                JOptionPane.showMessageDialog(null, "Chamado não encontrado");
+            }
+            
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
         
     }
 }
