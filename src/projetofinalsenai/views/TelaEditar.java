@@ -29,7 +29,7 @@ public class TelaEditar extends javax.swing.JFrame {
         textPrioridade = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        textDescricao1 = new javax.swing.JTextArea();
+        textResolucao = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,9 +92,9 @@ public class TelaEditar extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Prioridade");
 
-        textDescricao1.setColumns(20);
-        textDescricao1.setRows(5);
-        jScrollPane2.setViewportView(textDescricao1);
+        textResolucao.setColumns(20);
+        textResolucao.setRows(5);
+        jScrollPane2.setViewportView(textResolucao);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Resolução:");
@@ -208,7 +208,7 @@ public class TelaEditar extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         ChamadoDao atualizar = new ChamadoDao();
-        atualizar.atualizarChamado(textLocalChamado, textEquipamento, textDescricao, textPrioridade,textProtocolo);
+        atualizar.atualizarChamado(textLocalChamado, textEquipamento, textDescricao, textPrioridade,textResolucao,textProtocolo);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
@@ -242,10 +242,10 @@ public class TelaEditar extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextArea textDescricao;
-    private javax.swing.JTextArea textDescricao1;
     private javax.swing.JTextField textEquipamento;
     private javax.swing.JTextField textLocalChamado;
     private javax.swing.JComboBox<String> textPrioridade;
     private javax.swing.JTextField textProtocolo;
+    private javax.swing.JTextArea textResolucao;
     // End of variables declaration//GEN-END:variables
 }

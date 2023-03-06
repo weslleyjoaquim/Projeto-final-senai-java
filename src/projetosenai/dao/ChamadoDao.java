@@ -128,9 +128,9 @@ public class ChamadoDao{
     }
 
     public void atualizarChamado(javax.swing.JTextField textLocalChamado,javax.swing.JTextField textEquipamento, javax.swing.JTextArea textDescricao, 
-            javax.swing.JComboBox<String> textPrioridade,javax.swing.JTextField textProtocolo){
+            javax.swing.JComboBox<String> textPrioridade,javax.swing.JTextArea textResolucao,javax.swing.JTextField textProtocolo){
        // String sql = "update chamados c inner join funcionarios f on c.funcionarios_id = f.id set f.ramal=?, f.email=?, c.local_chamado=?, c.equipamento=?,c.descricao=? where c.id=?";
-       String sql = "update chamados set local_chamado=?,equipamento=?, descricao=?, prioridade=? where id=?" ;
+       String sql = "update chamados set local_chamado=?,equipamento=?, descricao=?, prioridade=?,resolucao=? where id=?" ;
        try{
             PreparedStatement ps = conn.prepareStatement(sql);
             
@@ -139,7 +139,8 @@ public class ChamadoDao{
             ps.setString(2, textEquipamento.getText());
             ps.setString(3, textDescricao.getText());
             ps.setString(4,textPrioridade.getSelectedItem().toString());
-            ps.setString(5, textProtocolo.getText());
+            ps.setString(5, textResolucao.getText());
+            ps.setString(6, textProtocolo.getText());
             
             int resultado = ps.executeUpdate();
             
@@ -149,6 +150,7 @@ public class ChamadoDao{
                 textEquipamento.setText(null);
                 textDescricao.setText(null);
                 textPrioridade.setSelectedItem(null);
+                textResolucao.setText(null);
                 textProtocolo.setText(null);
             }else{
                 JOptionPane.showMessageDialog(null, "Erro ao atualizar o chamado");
