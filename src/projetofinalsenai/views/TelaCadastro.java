@@ -100,7 +100,7 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         jLabel1.setText("Prioridade:");
 
-        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-salvar.png"))); // NOI18N
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons-excluir.png"))); // NOI18N
         jToggleButton2.setText("Limpar");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

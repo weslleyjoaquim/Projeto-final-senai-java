@@ -2,7 +2,6 @@ package projetosenai.dao;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
-import projetofinalsenai.views.TelaLogin;
 import projetofinalsenai.views.TelaPrincipal;
 
 public class LoginDao {
