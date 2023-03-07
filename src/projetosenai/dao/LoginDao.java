@@ -26,9 +26,12 @@ public class LoginDao {
             }else{
                 JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos", "ERRO",JOptionPane.ERROR_MESSAGE);                
             }
+            conn.close();
+            ps.close();
+            rs.close();
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e,"ERRRO",JOptionPane.ERROR_MESSAGE);
         }
     }
     

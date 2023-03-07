@@ -29,7 +29,7 @@ public class TableDao {
             }
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e,"ERRRO",JOptionPane.ERROR_MESSAGE);
         }
     }
 }

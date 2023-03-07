@@ -57,8 +57,7 @@ public class ChamadoDao{
                     textEquipamento.setText(null);
                     textDescricao.setText(null);
                     textPrioridade.setSelectedItem(null);
-                    //psChamados.close();
-                    //psFuncionarios.close();
+                   
 
                 }else{
                     JOptionPane.showMessageDialog(null,"Chamado não cadastrado","ERRO",JOptionPane.ERROR_MESSAGE);
@@ -67,6 +66,10 @@ public class ChamadoDao{
                     protocolo = rs.getInt(1);
                     JOptionPane.showMessageDialog(null,"Chamado cadastrado com sucesso Nº PROTOCOLO: "+ protocolo);
                 }
+                psFuncionarios.close();
+                psChamados.close();
+                rs.close();
+                conn.close();
                     
         }catch(Exception e){
                 JOptionPane.showMessageDialog(null, e);
@@ -92,8 +95,11 @@ public class ChamadoDao{
             }else{
                 JOptionPane.showMessageDialog(null, "Cliente não encontrado");
             }
+            ps.close();
+            rs.close();
+            conn.close();
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e,"ERRRO",JOptionPane.ERROR_MESSAGE);
         }       
                
     }
@@ -119,9 +125,12 @@ public class ChamadoDao{
             }else{
                 JOptionPane.showMessageDialog(null, "Chamado não encontrado");
             }
+            ps.close();
+            rs.close();
+            conn.close();
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e,"ERRRO",JOptionPane.ERROR_MESSAGE);
         }
         
         
@@ -129,7 +138,7 @@ public class ChamadoDao{
 
     public void atualizarChamado(javax.swing.JTextField textLocalChamado,javax.swing.JTextField textEquipamento, javax.swing.JTextArea textDescricao, 
             javax.swing.JComboBox<String> textPrioridade,javax.swing.JTextArea textResolucao,javax.swing.JTextField textProtocolo){
-       // String sql = "update chamados c inner join funcionarios f on c.funcionarios_id = f.id set f.ramal=?, f.email=?, c.local_chamado=?, c.equipamento=?,c.descricao=? where c.id=?";
+       
        String sql = "update chamados set local_chamado=?,equipamento=?, descricao=?, prioridade=?,resolucao=? where id=?" ;
        try{
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -155,9 +164,11 @@ public class ChamadoDao{
             }else{
                 JOptionPane.showMessageDialog(null, "Erro ao atualizar o chamado");
             }
+            ps.close();
+            conn.close();
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e,"ERRRO",JOptionPane.ERROR_MESSAGE);
         }
     
         
@@ -181,18 +192,21 @@ public class ChamadoDao{
                     textProtocolo.setText(null);
                     textPrioridade.setSelectedItem(null);
                     
+                    ps.close();
                 
                 }
                 
+                conn.close();
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null, e);
+                JOptionPane.showMessageDialog(null, e,"ERRRO",JOptionPane.ERROR_MESSAGE);
             }
         }
     
     
     
     public void consultaProtocolo(javax.swing.JTextField textLocalChamado,
-            javax.swing.JTextField textEquipamento, javax.swing.JTextArea textDescricao, javax.swing.JComboBox<String> textPrioridade,javax.swing.JTextField textProtocolo){
+            javax.swing.JTextField textEquipamento, javax.swing.JTextArea textDescricao, javax.swing.JComboBox<String> textPrioridade,javax.swing.JTextField textProtocolo, 
+            javax.swing.JTextArea textResolucao){
         String sql = "select*from chamados where id = ?";
         try{
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -204,14 +218,17 @@ public class ChamadoDao{
                 textEquipamento.setText(rs.getString("equipamento"));
                 textDescricao.setText(rs.getString("descricao"));
                 textPrioridade.setSelectedItem(rs.getString("prioridade"));
+                textResolucao.setText(rs.getString("resolucao"));
             }else{
                 JOptionPane.showMessageDialog(null, "Chamado não encontrado");
             }
             
-            
+            ps.close();
+            rs.close();
+            conn.close();
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e,"ERRRO",JOptionPane.ERROR_MESSAGE);
         }
         
     }

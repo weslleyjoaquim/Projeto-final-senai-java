@@ -217,7 +217,7 @@ public class TelaEditar extends javax.swing.JFrame {
 
     private void btnConsultaChamadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultaChamadoMouseClicked
         ChamadoDao consulta = new ChamadoDao();
-        consulta.consultaProtocolo(textLocalChamado, textEquipamento, textDescricao,textPrioridade, textProtocolo);
+        consulta.consultaProtocolo(textLocalChamado, textEquipamento, textDescricao,textPrioridade, textProtocolo, textResolucao);
     }//GEN-LAST:event_btnConsultaChamadoMouseClicked
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
