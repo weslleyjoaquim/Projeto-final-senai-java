@@ -16,8 +16,9 @@ E o terceiro menu, irá levar para tela de tratamento do chamado, no qual pode s
 ## Tela de Login:
 
 
+![telalogin](https://user-images.githubusercontent.com/107959293/232494355-0d5f781d-dd9c-4415-a9cc-88bb94540c14.png)
 
-![TelaLogin](https://user-images.githubusercontent.com/107959293/225478249-4118345c-6b36-4049-b0fc-2ef5cc623859.png)
+
 
 ## Tela Principal:
 
